@@ -1,0 +1,19 @@
+a) About
+C++ Console project, run at GateWay, For Edge Fog and Cloud Application.
+With two 3rd part GPL lib:
+--libctb-0.16
+--httplib
+
+Function: 1) https ask and require; 2) GateWay use uart for Fog data collect; 3) Fog data simple analys.
+Version: 0.4
+Date:17OCT2021
+
+b) Running Platefrom
+Windows and Ubuntu Server(ARM64).
+
+c) Compiler
+GNU g++(Version 8.1.0 and laster).
+
+d) make
+For Windows: 	make -f makefile.gcc
+For Ubuntu Server: 	make -f makefile.unx
