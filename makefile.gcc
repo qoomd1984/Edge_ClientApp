@@ -1,0 +1,43 @@
+#makefile
+
+prom = win_http.exe
+
+cc = g++
+
+source_dir = .
+cppinc_dir = C:\Lite_Program\codeblocks-20.03-32bit-mingw-32bit-nosetup\MinGW
+cpplib_dir = C:\Lite_Program\codeblocks-20.03-32bit-mingw-32bit-nosetup\MinGW\i686-w64-mingw32\lib
+
+cpplib_files = $(cpplib_dir)\libkernel32.a \
+				$(cpplib_dir)\libwinmm.a \
+				$(cpplib_dir)\libwsock32.a \
+				$(cpplib_dir)\libws2_32.a
+
+lib_p = -lwinmm -lwsock32 -lws2_32
+
+obj_file = $(source_dir)/main.o \
+			$(source_dir)/select.o \
+			$(source_dir)/fifo.o \
+			$(source_dir)/iobase.o \
+			$(source_dir)/serport.o \
+			$(source_dir)/serportx.o \
+			$(source_dir)/timer.o \
+			$(source_dir)/getopt.o
+
+src_file = $(source_dir)/main.cpp \
+			$(source_dir)/select.cpp \
+			$(source_dir)/src/fifo.cpp \
+			$(source_dir)/src/iobase.cpp \
+			$(source_dir)/src/win32/getopt.cpp \
+			$(source_dir)/src/win32/serport.cpp \
+			$(source_dir)/src/win32/timer.cpp \
+			$(source_dir)/src/serportx.cpp
+
+$(prom): $(obj_file)
+	$(cc) -o $(prom) $(obj_file) -L$(cpplib_files) $(lib_p)
+
+main.o:
+	$(cc) -c $(src_file) -I$(source_dir)\include -I$(cppinc_dir)\include
+
+clean:
+	del *.o *.exe
