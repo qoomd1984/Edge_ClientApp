@@ -9,5 +9,6 @@ testing verion.
 V0.5
 testing version.
 
+V0.6
 fix the gettimeofday() error.
 
